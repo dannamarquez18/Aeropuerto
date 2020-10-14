@@ -11,6 +11,40 @@ public class Aeropuerto {
     private String Especialidad;
     private Boolean Internacional;
 
+    public Aeropuerto(String Nombre, 
+            int NumeroDeTrabajadores,
+            Date FechaDeFundación, 
+            String Especialidad,
+            Boolean Internacional) {
+        this.Nombre = Nombre;
+        this.NumeroDeTrabajadores = NumeroDeTrabajadores;
+        this.FechaDeFundación = FechaDeFundación;
+        this.Especialidad = Especialidad;
+        this.Internacional = Internacional;
+    }
+
+    //El metodo umenta la cantidad de trabajadores de el Aropuerto en 100
+    // y la convierte en internacional
+    
+    public void contratarTrabajadores(){
+        this.NumeroDeTrabajadores += 100;
+        this.Internacional = true;
+    }
+    
+    /** Este metodo permite actualizar el nombre de la pagina 
+     * una especialidad
+     * @param nuevoNombre es el nuevo nombre del aeropuerto
+     * @param nuevaEspecialidad la nueva especialidad del aeropuerto 
+     */
+   
+    public void Actualizacion(
+        String nuevoNombre,
+        String nuevaEspecialidad){
+        this.Nombre = nuevoNombre; 
+        this.Especialidad = nuevaEspecialidad;
+        
+  }
+    
     public String getNombre() {
         return Nombre;
     }
