@@ -1,19 +1,25 @@
 
 package aeropuerto;
 
+import java.util.Date;
 
 
 public class Aeropuerto {
 
-    private String Nombre;
-    private int NumeroDeTrabajadores;
-    private Date FechaDeFundación;
-    private String Especialidad;
-    private Boolean Internacional;
+    private String Nombre;//Ete es el nombre del aeropuerto 
+    private int NumeroDeTrabajadores;//El numero de trabajadores del aeropuerto
+    private Date FechaDeFundación;//Fecha de fundación del aeropuerto
+    private String Especialidad;//Los tipos de especialidades del aeropuerto
+    private Boolean Internacional;//si realiza viajes de manera internacional
 
+    //Atribuos de composición
+    private Check Propietarios = null;
+    private final TorrePasajeros torreglow ;
+   
+    //Este es el constructor de clase
     public Aeropuerto(String Nombre, 
             int NumeroDeTrabajadores,
-            Date FechaDeFundación, 
+            Date FechaDeFundación,
             String Especialidad,
             Boolean Internacional) {
         this.Nombre = Nombre;
@@ -21,8 +27,20 @@ public class Aeropuerto {
         this.FechaDeFundación = FechaDeFundación;
         this.Especialidad = Especialidad;
         this.Internacional = Internacional;
+        this.torreglow = new TorrePasajeros(300,"Sin registro");
+  
     }
-
+ 
+    public Check getPropietarios(){
+        return this.Propietarios;
+    }
+    
+    
+    public void setPropietarios(Equiaje  p ){
+        this.Propietarios = p;
+                 
+    }
+    
     //El metodo umenta la cantidad de trabajadores de el Aropuerto en 100
     // y la convierte en internacional
     
@@ -44,6 +62,9 @@ public class Aeropuerto {
         this.Especialidad = nuevaEspecialidad;
         
   }
+    
+    /**A partir de esta linea se encuentran los metodos get y se
+     * @return t*/
     
     public String getNombre() {
         return Nombre;
@@ -87,13 +108,29 @@ public class Aeropuerto {
     
 
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
-
-    private static class Date {
-
-        public Date() {
+        Aeropuerto aeropuertoUno = new Aeropuerto(
+                   "Aeropuerto Marquesaa",
+                   165,
+                   new Date (),
+                   "Animales ",
+                   false);
+        Aeropuerto aeropuertoDos = new Aeropuerto(
+                  "Aeropuerto DaEm",
+                   30,
+                   new Date(),
+                   "Personas",
+                    true);
+        
+        System.out.println(aeropuertoUno.getNombre());
+        System.out.println(aeropuertoUno.getNumeroDeTrabajadores());
+        System.out.println(aeropuertoUno.getInternacional());
+        
+        aeropuertoUno.contratarTrabajadores();
+     
+        System.out.println(aeropuertoUno.getNombre());
+        System.out.println(aeropuertoUno.getNumeroDeTrabajadores());
+        System.out.println(aeropuertoUno.getInternacional());
         }
-    }
-    
 }
+
+
